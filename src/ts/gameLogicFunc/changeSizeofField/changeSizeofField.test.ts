@@ -18,7 +18,8 @@ describe("Testing changeSizeofField", () => {
 
     it('Cells must not change', () => {
         expect(state[0][0]).toBe(newState[0][0]);
-        expect(state[2][0]).toBe(newState[2][1]);
+        expect(state[2][0]).toBe(newState[2][0]);
+        expect(state[2][1]).toBe(newState[2][1]);
         expect(newState.reduce(
             (rowSum: number, currRow: number[]) => {
                 return rowSum + currRow.reduce(
