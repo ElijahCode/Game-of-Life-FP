@@ -17,6 +17,8 @@ export function renderTable(field: number[][]): void {
             row.forEach(
                 (cell: number, x) => {
                     newTable.rows[y].cells[x].innerText = "" + cell;
+                    const secondCellClass = cell === 0 ? 'cell-dead' : 'cell-alive';
+                    newTable.rows[y].cells[x].classList.add('cell', secondCellClass);
                 }
             )
         }

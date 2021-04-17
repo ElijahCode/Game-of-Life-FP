@@ -27,4 +27,8 @@ describe('Testing renderTable function', () => {
         }
         expect(result).toBe(1);
     })
+    it("Cell must contain right classes", () => {
+        expect(document.querySelectorAll('.cell.cell-alive').length).toBe(1);
+        expect(document.querySelectorAll('.cell.cell-dead').length).toBe(8);
+    })
 })
