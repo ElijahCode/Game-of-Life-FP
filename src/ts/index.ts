@@ -32,6 +32,8 @@ export function game() {
                 element.target.clasList.add('button-stopped');
 
                 gameRunState = false;
+
+                clearInterval(setIntervalId);
             } else {
                 element.target.innerText = 'Play';
                 element.target.clasList.remove('button-stopped');
