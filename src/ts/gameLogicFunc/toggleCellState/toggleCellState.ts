@@ -7,6 +7,5 @@ export function toggleCellState(y: number, x: number, field: number[][]): number
             return cell;
         });
     })
-    console.log(newField);
     return newField;
 }
