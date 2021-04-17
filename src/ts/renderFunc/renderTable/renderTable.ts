@@ -1,3 +1,5 @@
+import {getOneStepDeathCells} from '../../gameLogicFunc/getOneStepDeathCells/getOneStepDeathCells'
+
 export function renderTable(field: number[][]): void {
     const newTable: HTMLTableElement = document.querySelector('.gameField');
 
@@ -17,7 +19,13 @@ export function renderTable(field: number[][]): void {
             row.forEach(
                 (cell: number, x) => {
                     newTable.rows[y].cells[x].innerText = "" + cell;
-                    const secondCellClass = cell === 0 ? 'cell-dead' : 'cell-alive';
+                    
+                    let secondCellClass = cell === 0 ? 'cell-dead' : 'cell-alive';
+
+                    if(field[y][x] === 1) {
+                        secondCellClass = getOneStepDeathCells(field)[y][x] === 1 ? 'cell-one-step-to-death' : secondCellClass;
+                    }
+
                     newTable.rows[y].cells[x].classList.add('cell', secondCellClass);
                 }
             )

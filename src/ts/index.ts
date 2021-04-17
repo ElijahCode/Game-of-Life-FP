@@ -53,7 +53,7 @@ function game() {
             const runTimeGameField = tableToArray(table);
             const newField = getNextGeneration(runTimeGameField);
             renderTable(newField);
-            if(!document.querySelectorAll('.cell-alive').length) {
+            if(!(document.querySelectorAll('.cell-alive').length || document.querySelectorAll('.cell-one-step-to-death').length)) {
                 isGameRunning = false;
                 const button: HTMLButtonElement = document.querySelector('.button');
 

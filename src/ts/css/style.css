@@ -18,3 +18,7 @@ body {
   .cell-alive {
     background-color: green;
   }
+
+  .cell-one-step-to-death {
+    background-color: blue;
+  }
