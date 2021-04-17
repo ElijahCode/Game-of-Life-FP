@@ -13,7 +13,7 @@ import './css/style.css'
 function game() {
     let isGameRunning = false;
     let stepDuration = BASIC_GAME_TIME_STEP_DURATION_MS;
-    let setIntervalId;
+    let ID;
 
     const gameField = createGameField(BASIC_GAME_FIELD_WIDTH, BASIC_GAME_FIELD_HEIGTH);
     renderTable(gameField);
@@ -21,11 +21,11 @@ function game() {
     onCellClick(toggleCellState);
     onInputChange(changeSizeofField);
 
-    function onButtonClick() {
+    function onButtonClick():void {
 
         const button: HTMLButtonElement = document.querySelector('.button');
         
-        function buttonHandler(element) {
+        function buttonHandler(element):void {
             let gameRunState: boolean = isGameRunning;
             gameRunState = gameRunState ? false : true;
             if(element.target.innerText === "Play") {
@@ -33,10 +33,14 @@ function game() {
                 element.target.classList.remove('button-running');
                 element.target.classList.add('button-stopped');
 
+                ID = setInterval(tick, stepDuration);
+
             } else {
                 element.target.innerText = 'Play';
                 element.target.classList.remove('button-stopped');
                 element.target.classList.add('button-running');
+
+                clearInterval(ID);
 
             }
             isGameRunning = gameRunState;
@@ -44,11 +48,20 @@ function game() {
         button.addEventListener('click', buttonHandler);
     }
 
-    onButtonClick();
+    function onGameSpeedChange():void {
+        const gameSpeedInput: HTMLInputElement = document.querySelector('.input-game-speed');
 
-    function tick() {
+        function inputHandler(element) {
+            const gameSpeedValue = Number(element.target.value);
+            stepDuration = gameSpeedValue >= 0 ? BASIC_GAME_TIME_STEP_DURATION_MS / (gameSpeedValue + 1) : BASIC_GAME_TIME_STEP_DURATION_MS * (-gameSpeedValue + 1);
+        }
+
+        gameSpeedInput.addEventListener('change', inputHandler);
+    }
+
+    function tick(): void {
+        console.log(isGameRunning);
         if(isGameRunning) {
-            
             const table: HTMLTableElement = document.querySelector('.gameField'); 
             const runTimeGameField = tableToArray(table);
             const newField = getNextGeneration(runTimeGameField);
@@ -64,7 +77,8 @@ function game() {
         }
     }
 
-    setInterval(tick, stepDuration);
+    onButtonClick();
+    onGameSpeedChange();
 }
 
 game();
