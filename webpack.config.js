@@ -18,22 +18,21 @@ module.exports = {
       template: path.resolve(__dirname, "./src/html/index.html"),
       filename: "index.html",
     }),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
   ],
   resolve: {
     extensions: [".js", ".ts"],
   },
-  module: 
-  { 
+  module: {
     rules: [
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /\.tsx?$/,
         loader: "ts-loader",
       },
-    ]
-  }
+    ],
+  },
 };

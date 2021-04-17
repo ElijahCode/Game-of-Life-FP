@@ -1,4 +1,4 @@
-export const element: HTMLElement = document.createElement('body');
+export const element: HTMLElement = document.createElement("body");
 
 element.innerHTML = `
     <body class = "body">
@@ -9,4 +9,4 @@ element.innerHTML = `
             <button class = "button button-stopped">Play</button>
         </div>
     </body>
-    `
+    `;

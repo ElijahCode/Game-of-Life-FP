@@ -1,24 +1,24 @@
 body {
-    font-family: sans-serif;
-  }
-  
-  table {
-    border-collapse: collapse;
-    margin: 30px;
-  }
-  
-  .cell {
-    border: 1px solid black;
-    color: black;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-  }
-  
-  .cell-alive {
-    background-color: green;
-  }
+  font-family: sans-serif;
+}
 
-  .cell-one-step-to-death {
-    background-color: blue;
-  }
+table {
+  border-collapse: collapse;
+  margin: 30px;
+}
+
+.cell {
+  border: 1px solid black;
+  color: black;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+.cell-alive {
+  background-color: green;
+}
+
+.cell-one-step-to-death {
+  background-color: blue;
+}
