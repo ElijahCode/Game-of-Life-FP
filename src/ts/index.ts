@@ -53,6 +53,14 @@ function game() {
             const runTimeGameField = tableToArray(table);
             const newField = getNextGeneration(runTimeGameField);
             renderTable(newField);
+            if(!document.querySelectorAll('.cell-alive').length) {
+                isGameRunning = false;
+                const button: HTMLButtonElement = document.querySelector('.button');
+
+                button.innerText = 'Play';
+                button.classList.remove('button-running');
+                button.classList.add('button-stopped');
+            }
         }
     }
 
