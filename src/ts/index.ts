@@ -7,9 +7,10 @@ import {toggleCellState} from './gameLogicFunc/toggleCellState/toggleCellState'
 import {changeSizeofField} from './gameLogicFunc/changeSizeofField/changeSizeofField'
 import {tableToArray} from './convertFunc/tableToArray'
 import {BASIC_GAME_FIELD_HEIGTH, BASIC_GAME_FIELD_WIDTH, BASIC_GAME_TIME_STEP_DURATION_MS} from './config/config'
+import './css/style.css'
 
 
-export function game() {
+function game() {
     let isGameRunning = false;
     let stepDuration = BASIC_GAME_TIME_STEP_DURATION_MS;
     let setIntervalId;
@@ -25,36 +26,37 @@ export function game() {
         const button: HTMLButtonElement = document.querySelector('.button');
         
         function buttonHandler(element) {
-            let gameRunState: boolean;
+            let gameRunState: boolean = isGameRunning;
+            gameRunState = gameRunState ? false : true;
             if(element.target.innerText === "Play") {
                 element.target.innerText = 'Stop';
-                element.target.clasList.remove('button-running');
-                element.target.clasList.add('button-stopped');
+                element.target.classList.remove('button-running');
+                element.target.classList.add('button-stopped');
 
-                gameRunState = false;
-
-                clearInterval(setIntervalId);
             } else {
                 element.target.innerText = 'Play';
-                element.target.clasList.remove('button-stopped');
-                element.target.clasList.add('button-running');
+                element.target.classList.remove('button-stopped');
+                element.target.classList.add('button-running');
 
-                gameRunState = true;
-
-                setIntervalId = setInterval(() => {
-                    const table: HTMLTableElement = document.querySelector('.gameField'); 
-                    const runTimeGameField = tableToArray(table);
-                    const newField = getNextGeneration(runTimeGameField);
-
-                    renderTable(newField);
-
-                }, stepDuration);
             }
             isGameRunning = gameRunState;
         }
-
         button.addEventListener('click', buttonHandler);
     }
 
     onButtonClick();
+
+    function tick() {
+        if(isGameRunning) {
+            
+            const table: HTMLTableElement = document.querySelector('.gameField'); 
+            const runTimeGameField = tableToArray(table);
+            const newField = getNextGeneration(runTimeGameField);
+            renderTable(newField);
+        }
+    }
+
+    setInterval(tick, stepDuration);
 }
+
+game();
