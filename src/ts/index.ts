@@ -53,8 +53,6 @@ function game() {
     const button: HTMLButtonElement = document.querySelector(".button");
 
     function buttonHandler(element): void {
-      let gameRunState: boolean = isGameRunning;
-      gameRunState = !gameRunState;
       if (element.target.innerText === "Play") {
         button.innerText = "Stop";
         button.classList.remove("button-running");
@@ -68,7 +66,7 @@ function game() {
 
         clearInterval(ID);
       }
-      isGameRunning = gameRunState;
+      isGameRunning = !isGameRunning;
     }
     button.addEventListener("click", buttonHandler);
   }

@@ -1,6 +1,4 @@
-import { Cell } from "../../types/cell";
-
-export function createGameField(width: number, heigth: number): Cell[][] {
+export function createGameField(width: number, heigth: number): number[][] {
   const result = [];
   while (result.length < heigth) {
     result.push([]);
