@@ -71,6 +71,9 @@ function game() {
 
   function onButtonClick(): void {
     const button: HTMLButtonElement = document.querySelector(".button");
+    const buttonReset: HTMLButtonElement = document.querySelector(
+      ".button-reset"
+    );
 
     function buttonHandler(element): void {
       if (element.target.innerText === "Play") {
@@ -89,7 +92,14 @@ function game() {
       }
       isGameRunning = !isGameRunning;
     }
+
+    function buttonResetHandler(): void {
+      renderTable(
+        createGameField(Number(inputWidth.value), Number(inputHeigth.value))
+      );
+    }
     button.addEventListener("click", buttonHandler);
+    buttonReset.addEventListener("click", buttonResetHandler);
   }
 
   function onGameSpeedChange(): void {

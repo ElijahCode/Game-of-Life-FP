@@ -22,3 +22,8 @@ table {
 .cell-one-step-to-death {
   background-color: blue;
 }
+
+.button-reset {
+  margin-bottom: 15px;
+  margin-left: 75px;
+}
