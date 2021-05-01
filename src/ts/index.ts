@@ -44,12 +44,17 @@ function game() {
       const runTimeGameField = tableToArray(table);
       const newField = getNextGeneration(runTimeGameField);
       renderTable(newField);
-      console.log(ID);
+
+      const isGamePatternRepeat =
+        JSON.stringify(runTimeGameField) ===
+        JSON.stringify(getNextGeneration(newField));
+
       if (
         !(
           document.querySelectorAll(".cell-alive").length ||
           document.querySelectorAll(".cell-one-step-to-death").length
-        )
+        ) ||
+        isGamePatternRepeat
       ) {
         isGameRunning = false;
         const button: HTMLButtonElement = document.querySelector(".button");
