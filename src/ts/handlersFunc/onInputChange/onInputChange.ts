@@ -14,10 +14,10 @@ export function onInputChange(
     let heigth: number;
 
     if (element.target.classList[1] === "input-width") {
-      width = Number(element.target.value);
+      width = Number(element.target.value) >= 0 ? Number(element.target.value) : -Number(element.target.value);
       heigth = tableElem.rows.length;
     } else {
-      heigth = Number(element.target.value);
+      heigth = Number(element.target.value) >= 0 ? Number(element.target.value) : -Number(element.target.value);
       width = tableElem.rows[0].cells.length;
     }
     const newField = cb(width, heigth, tableToArray(tableElem));

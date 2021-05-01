@@ -30,4 +30,15 @@ describe("TestingInputChange function", () => {
     heigthInput.dispatchEvent(new Event("change", { bubbles: true }));
     expect(table.rows.length).toBe(3);
   });
+  it('Table width must be 4', () => {
+    widthInput.value = "-4";
+    widthInput.dispatchEvent(new Event("change", { bubbles: true }));
+    expect(table.rows[0].cells.length).toBe(4);
+    expect(table.rows[1].cells.length).toBe(4);
+  })
+  it("table height must be 4", () => {
+    heigthInput.value = "-4";
+    heigthInput.dispatchEvent(new Event("change", { bubbles: true }));
+    expect(table.rows.length).toBe(4);
+  });
 });

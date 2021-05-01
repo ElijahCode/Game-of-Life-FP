@@ -1,7 +1,7 @@
 import { toggleCellState } from "./toggleCellState";
 
 describe("Testing toggleCellState function", () => {
-  const state: number[][] = [
+  const state = [
     [1, 0, 0],
     [0, 0, 0],
     [0, 0, 0],
