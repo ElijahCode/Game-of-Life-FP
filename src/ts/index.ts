@@ -25,8 +25,8 @@ function game() {
     ".input.input-heigth"
   );
 
-  inputWidth.value = `${  BASIC_GAME_FIELD_WIDTH}`;
-  inputHeigth.value = `${  BASIC_GAME_FIELD_HEIGTH}`;
+  inputWidth.value = `${BASIC_GAME_FIELD_WIDTH}`;
+  inputHeigth.value = `${BASIC_GAME_FIELD_HEIGTH}`;
 
   const gameField = createGameField(
     BASIC_GAME_FIELD_WIDTH,
@@ -44,6 +44,7 @@ function game() {
       const runTimeGameField = tableToArray(table);
       const newField = getNextGeneration(runTimeGameField);
       renderTable(newField);
+      console.log(ID);
       if (
         !(
           document.querySelectorAll(".cell-alive").length ||
@@ -56,6 +57,8 @@ function game() {
         button.innerText = "Play";
         button.classList.remove("button-running");
         button.classList.add("button-stopped");
+
+        clearInterval(ID);
       }
     }
   }
