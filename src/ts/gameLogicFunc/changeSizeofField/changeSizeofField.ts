@@ -5,10 +5,10 @@ export function changeSizeofField(
   heigth: number,
   state: number[][]
 ): number[][] {
-  const newState: number[][] = createGameField(width, heigth);
+  const newState = createGameField(width, heigth);
 
   return newState.map((row: number[], y) =>
-    row.map((cell: number, x) => {
+    row.map((_, x) => {
       let newCell: number;
       if (state[y] && state[y][x]) {
         newCell = state[y][x];

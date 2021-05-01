@@ -5,11 +5,9 @@ export function getNextGeneration(state: number[][]): number[][] {
     row.map((cell: number, x) => {
       const numberAliveCell: number = getNumbAliveCell(y, x, state);
       let cellState;
-      if (numberAliveCell === 3 && state[y][x] === 0) {
-        cellState = 1;
-      } else if (
-        (numberAliveCell === 2 || numberAliveCell === 3) &&
-        state[y][x] === 1
+      if (
+        (numberAliveCell === 3 && state[y][x] === 0) ||
+        ((numberAliveCell === 2 || numberAliveCell === 3) && state[y][x] === 1)
       ) {
         cellState = 1;
       } else {

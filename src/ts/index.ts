@@ -18,10 +18,21 @@ function game() {
   let stepDuration = BASIC_GAME_TIME_STEP_DURATION_MS;
   let ID;
 
+  const inputWidth: HTMLInputElement = document.querySelector(
+    ".input.input-width"
+  );
+  const inputHeigth: HTMLInputElement = document.querySelector(
+    ".input.input-heigth"
+  );
+
+  inputWidth.value = `${  BASIC_GAME_FIELD_WIDTH}`;
+  inputHeigth.value = `${  BASIC_GAME_FIELD_HEIGTH}`;
+
   const gameField = createGameField(
     BASIC_GAME_FIELD_WIDTH,
     BASIC_GAME_FIELD_HEIGTH
   );
+
   renderTable(gameField);
 
   onCellClick(toggleCellState);

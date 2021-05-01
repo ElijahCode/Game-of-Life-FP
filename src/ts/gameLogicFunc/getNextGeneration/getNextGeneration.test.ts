@@ -1,14 +1,14 @@
 import { getNextGeneration } from "./getNextGeneration";
 
 describe("Testing getNextGeneration function", () => {
-  const state: number[][] = [
+  const state = [
     [1, 1, 0],
     [0, 0, 0],
     [0, 0, 0],
     [1, 1, 1],
   ];
 
-  const newState: number[][] = [
+  const newState = [
     [0, 0, 0],
     [0, 0, 0],
     [0, 1, 0],

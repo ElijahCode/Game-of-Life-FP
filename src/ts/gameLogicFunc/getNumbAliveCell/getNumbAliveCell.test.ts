@@ -1,7 +1,7 @@
 import { getNumbAliveCell } from "./getNumbAliveCell";
 
 describe("Test getNumbAliveCell function", () => {
-  const state: number[][] = [
+  const state = [
     [1, 1, 0],
     [0, 0, 0],
     [0, 0, 0],

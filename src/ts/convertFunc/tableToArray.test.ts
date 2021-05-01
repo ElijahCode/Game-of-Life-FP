@@ -4,7 +4,7 @@ import { element } from "../utils/utils";
 
 document.body = element;
 
-const state: number[][] = [
+const state = [
   [0, 1, 0],
   [0, 0, 0],
   [1, 1, 1],

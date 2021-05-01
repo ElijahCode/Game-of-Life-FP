@@ -1,19 +1,19 @@
 import { createGameField } from "./createGameField";
 
 describe("Test createGameField function", () => {
-  const widht: number = Math.floor(1 + Math.random() * 100);
-  const heigth: number = Math.floor(1 + Math.random() * 100);
+  const width = Math.floor(1 + Math.random() * 100);
+  const heigth = Math.floor(1 + Math.random() * 100);
 
-  const gameField = createGameField(widht, heigth);
+  const gameField = createGameField(width, heigth);
 
   it("Return field with sizes heigth x width", () => {
     expect(gameField.length).toBe(heigth);
-    expect(gameField[0].length).toBe(widht);
+    expect(gameField[0].length).toBe(width);
   });
 
   it("All cell is equal to 0", () => {
-    const reuslt: number = gameField.reduce((acc: number, row: number[]) => {
-      const sum: number = row.reduce(
+    const reuslt = gameField.reduce((acc: number, row: number[]) => {
+      const sum = row.reduce(
         (rowSum: number, cell: number) => rowSum + cell,
         0
       );
