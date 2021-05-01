@@ -64,6 +64,7 @@ function game() {
         button.classList.add("button-stopped");
 
         clearInterval(ID);
+        ID = null;
       }
     }
   }
@@ -84,6 +85,7 @@ function game() {
         button.classList.add("button-running");
 
         clearInterval(ID);
+        ID = null;
       }
       isGameRunning = !isGameRunning;
     }
@@ -101,6 +103,10 @@ function game() {
         gameSpeedValue >= 0
           ? BASIC_GAME_TIME_STEP_DURATION_MS / (gameSpeedValue + 1)
           : BASIC_GAME_TIME_STEP_DURATION_MS * (-gameSpeedValue + 1);
+      if (ID) {
+        clearInterval(ID);
+        ID = setInterval(tick, stepDuration);
+      }
     }
 
     gameSpeedInput.addEventListener("change", inputHandler);
