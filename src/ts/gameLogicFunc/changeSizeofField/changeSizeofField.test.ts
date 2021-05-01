@@ -6,8 +6,8 @@ describe("Testing changeSizeofField", () => {
     [0, 0],
     [1, 1],
   ];
-  const width = 1 + Math.floor(Math.random() * 10);
-  const heigth = 1 + Math.floor(Math.random() * 10);
+  const width = 2 + Math.floor(Math.random() * 10);
+  const heigth = 3 + Math.floor(Math.random() * 10);
 
   const newState = changeSizeofField(width, heigth, state);
 
@@ -15,7 +15,6 @@ describe("Testing changeSizeofField", () => {
     expect(newState.length).toBe(heigth);
     expect(newState[0].length).toBe(width);
   });
-
   it("Cells must not change", () => {
     expect(state[0][0]).toBe(newState[0][0]);
     expect(state[2][0]).toBe(newState[2][0]);
