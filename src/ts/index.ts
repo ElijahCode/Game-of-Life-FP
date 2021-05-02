@@ -63,8 +63,7 @@ function game() {
         button.classList.remove("button-running");
         button.classList.add("button-stopped");
 
-        clearInterval(ID);
-        ID = null;
+        ID = clearInterval(ID);
       }
     }
   }
@@ -87,8 +86,7 @@ function game() {
         button.classList.remove("button-stopped");
         button.classList.add("button-running");
 
-        clearInterval(ID);
-        ID = null;
+        ID = clearInterval(ID);
       }
       isGameRunning = !isGameRunning;
     }

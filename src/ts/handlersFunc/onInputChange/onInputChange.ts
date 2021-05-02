@@ -12,18 +12,16 @@ export function onInputChange(
   function addCbWithArgs(element): void {
     let width: number;
     let heigth: number;
-
+    // eslint-disable-next-line no-param-reassign
+    element.target.value =
+      Number(element.target.value) >= 0
+        ? element.target.value
+        : element.target.value.replace(/-/, "");
     if (element.target.classList[1] === "input-width") {
-      width =
-        Number(element.target.value) >= 0
-          ? Number(element.target.value)
-          : -Number(element.target.value);
+      width = Number(element.target.value);
       heigth = tableElem.rows.length;
     } else {
-      heigth =
-        Number(element.target.value) >= 0
-          ? Number(element.target.value)
-          : -Number(element.target.value);
+      heigth = Number(element.target.value);
       width = tableElem.rows[0].cells.length;
     }
     const newField = cb(width, heigth, tableToArray(tableElem));
