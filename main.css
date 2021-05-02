@@ -1,4 +1,5 @@
 body {
+  width: 100%;
   font-family: sans-serif;
 }
 
@@ -23,8 +24,25 @@ table {
   background-color: blue;
 }
 
+.flex-container {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  overflow: auto;
+}
+
 .button-reset {
-  margin-bottom: 15px;
-  margin-left: 75px;
+  margin-bottom: 25px;
+}
+
+.gameSpeed {
+  display: flex;
+  flex-direction: column;
 }
 
